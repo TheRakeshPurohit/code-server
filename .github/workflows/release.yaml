@@ -41,6 +41,11 @@ jobs:
             package-lock.json
             test/package-lock.json
 
+      # node-gyp needs a newer version of Python.
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
       - run: SKIP_SUBMODULE_DEPS=1 npm ci
 
       - name: Install development tools
@@ -137,6 +142,11 @@ jobs:
           cache-dependency-path: |
             package-lock.json
             test/package-lock.json
+
+      # node-gyp needs a newer version of Python.
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
 
       - name: Install cross-compiler and system dependencies
         run: |
